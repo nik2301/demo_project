@@ -1,0 +1,48 @@
+<br>
+<%= form_with model: current_user do |form| %>
+    <div>
+      <%= form.label :fname %>
+      <%= form.text_field :fname %>
+      <ol>
+        <% current_user.errors.full_messages_for(:fname).each do |message| %>
+            <li><div><%= message %></div></li>
+        <% end %>
+      </ol>
+    </div>
+
+    <div>
+      <%= form.label :lname %>
+      <%= form.text_field :lname %>
+      <ol>
+      <% current_user.errors.full_messages_for(:lname).each do |message| %>
+        <li><div><%= message %></div></li>
+      <% end %>
+      </ol>
+    </div>
+
+    <div>
+        <%= form.label :gender %><br>
+        <%= form.select :gender, ['male', 'female', 'other'], selected: 'male' %>
+        <ol>
+            <% current_user.errors.full_messages_for(:gender).each do |message| %>
+                <li><div><%= message %></div></li>
+            <% end %>
+        </ol>
+        <br>
+    </div>
+
+    <div>
+        <%= form.label :pno %>
+        <%= form.text_field :pno %>
+        <ol>
+            <% current_user.errors.full_messages_for(:pno).each do |message| %>
+                <li><div><%= message %></div></li>
+            <% end %>
+        </ol>
+        <br>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
